@@ -1,0 +1,57 @@
+﻿@model Ad_Link_Pro.Models.ServicesModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>مسح الخدمة</h2>
+
+<h3>هل انت متأكد من رغبتك في حذف هذة الخدمة؟</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServicePrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServicePrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceType)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceType)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ServiceTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ServiceTime)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="تأكيد المسح" class="btn btn-danger" /> |
+            @Html.ActionLink("الغاء", "Index", new object { }, new { @class = "btn btn-success" })
+        </div>
+    }
+</div>
